@@ -9,7 +9,16 @@ const avatarFallbackImage = 'https://s3.amazonaws.com/onename/avatar-placeholder
 export default class Profile extends Component {
   constructor(props) {
   	super(props);
+
     this.state = {
+      person: {
+       name() {
+         return 'Anonymous';
+       },
+       avatarUrl() {
+         return avatarFallbackImage;
+       },
+      },
       accounts:[],
     }
   }
@@ -17,6 +26,7 @@ export default class Profile extends Component {
   render() {
     const { handleSignOut, userSession } = this.props;
     const { person } = this.state;
+    const { accounts } = this.state;
     return (
       !userSession.isSignInPending() ?
       <div className="panel-welcome" id="section-2">
@@ -33,10 +43,18 @@ export default class Profile extends Component {
             Logout
           </button>
         </p>
+
         <div className = "piggy-banks">
-          <center>
-            <strong>My Piggy Banks</strong>
-          </center>
+          <div height = '20'>
+            <center>
+              <strong>My Piggy Banks</strong>
+            </center>
+          </div>
+          <div height = '20'>
+            <button class = 'custom-btn' onClick={() => alert("TODO: add functionality")}>add account</button>
+            <button class = 'custom-btn' onClick={() => alert("TODO: add functionality")}>remove account</button>
+          </div>
+
           <ul>
             {[12345, 44213].map( (item) =>
               (<li> <PiggyBank balance = {item}></PiggyBank> </li>)

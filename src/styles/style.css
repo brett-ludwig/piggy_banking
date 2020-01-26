@@ -10,6 +10,7 @@ body{color:#3700FF;text-align:center;}
 .btn-lg{font-size:0.875rem;padding:0.6875rem 3.4375rem;line-height:1.75rem;}
 .btn:focus,.btn:active:focus,.btn.active:focus{outline:none;}
 .btn-primary{background-color:#3700FF;border:1px solid #3700FF;}
+.custom-btn{color:#fff;background-color:#3700FF;border:1px solid #3700FF; margin: 10px;}
 .btn-primary:hover,.btn-primary:focus,.btn-primary:active{color:#fff;border:1px solid #270F34;background-color:#270F34;}
 .navbar{background-color:#3700FF !important;-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0;}
 
@@ -32,7 +33,10 @@ ul {
 }
 
 .piggy-bank{
-  margin-left: 30%;
+  background-color: #999;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 10px;
   display: flex;
   align-items: center;
 }

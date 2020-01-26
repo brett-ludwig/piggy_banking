@@ -8,7 +8,7 @@ export default class PiggyBank extends Component{
     return (
       <div class='piggy-bank'>
         <img class = 'pig' width = '128' height='128' background = 'c3f0ca'
-             src = 'https://cdn.imgbin.com/25/4/12/imgbin-piggy-bank-MbmjRpjwCuCs3V70NMYfUieH3.jpg'>
+             src = 'https://www.pikpng.com/pngl/b/288-2884365_piggy-bank-transparent-free-png-piggy-bank-vector.png'>
         </img>
         <div class = 'column'>
           <strong> account balance : {this.props.balance} </strong>

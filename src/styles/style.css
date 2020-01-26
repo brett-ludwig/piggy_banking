@@ -28,6 +28,7 @@ body{color:#3700FF;text-align:center;}
 ul {
   vertical-align: center;
   text-align: center;
+  border-spacing: 100;
 }
 
 .piggy-bank{
@@ -35,6 +36,13 @@ ul {
   display: flex;
   align-items: center;
 }
+
+.column{
+  display: flex;
+  justify-content: center;
+}
+
+
 /* Input */
 input, textarea{color:#000;}
 input, textarea{color:#000;}

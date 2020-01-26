@@ -38,13 +38,10 @@ export default class Profile extends Component {
             <strong>My Piggy Banks</strong>
           </center>
           <ul>
-            <lc>
-              <center>
-              <li>
-                <PiggyBank/>
-              </li>
-              </center>
-            </lc>
+            {[12345, 44213].map( (item) =>
+              (<li> <PiggyBank balance = {item}></PiggyBank> </li>)
+            )
+            }
           </ul>
         </div>
       </div> : null

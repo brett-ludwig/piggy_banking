@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PiggyBank from './PiggyBank.js';
+import AddAccountForm from './AddAccountForm.js'
 import {
   Person,
 } from 'blockstack';
@@ -19,7 +20,8 @@ export default class Profile extends Component {
          return avatarFallbackImage;
        },
       },
-      accounts:[],
+      account_names:[],
+      account_balances: [],
     }
   }
 
@@ -50,20 +52,35 @@ export default class Profile extends Component {
               <strong>My Piggy Banks</strong>
             </center>
           </div>
-          <div height = '20'>
-            <button class = 'custom-btn' onClick={() => alert("TODO: add functionality")}>add account</button>
+          <div >
+            <AddAccountForm userSession = {userSession}></AddAccountForm>
+          </div>
+          <div>
             <button class = 'custom-btn' onClick={() => alert("TODO: add functionality")}>remove account</button>
           </div>
 
           <ul>
-            {[12345, 44213].map( (item) =>
+            {this.state.account_balances.map( (item) =>
               (<li> <PiggyBank balance = {item}></PiggyBank> </li>)
             )
-            }
+          }
+            (<li> <PiggyBank balance = '100'></PiggyBank> </li>)
           </ul>
         </div>
       </div> : null
     );
+  }
+
+  fetchData(){
+    const { userSession } = this.props
+    const options = { decrypt: true }
+    userSession.getFile('balances.json', options)
+     .then((file) => {
+       var accounts = JSON.parse(file || '[]')
+       this.setState({
+         account_names : parseInt(accounts)
+       })
+     })
   }
 
   componentWillMount() {
@@ -71,5 +88,7 @@ export default class Profile extends Component {
     this.setState({
       person: new Person(userSession.loadUserData().profile),
     });
+    this.fetchData()
   }
+
 }
